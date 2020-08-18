@@ -1,0 +1,2 @@
+# webhosting
+static webhosting
