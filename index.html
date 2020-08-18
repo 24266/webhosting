@@ -1,13 +1,624 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Travel to Costa Rica</h1>
-    <p>... and you'll get to see these beauties!</p>
-    
-</body>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <title>Styled Map</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 45.4507, lng: 68.8319 },
+          zoom: 4,
+          styles: [
+            {
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#f5f5f5",
+                },
+                {
+                  visibility: "on",
+                },
+              ],
+            },
+            {
+              elementType: "labels.icon",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
+            },
+            {
+              elementType: "labels.text",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
+            },
+            {
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#616161",
+                },
+              ],
+            },
+            {
+              elementType: "labels.text.stroke",
+              stylers: [
+                {
+                  color: "#f5f5f5",
+                },
+              ],
+            },
+            {
+              featureType: "administrative.land_parcel",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#bdbdbd",
+                },
+              ],
+            },
+            {
+              featureType: "poi",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#eeeeee",
+                },
+              ],
+            },
+            {
+              featureType: "poi",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#757575",
+                },
+              ],
+            },
+            {
+              featureType: "poi.park",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#e5e5e5",
+                },
+              ],
+            },
+            {
+              featureType: "poi.park",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#9e9e9e",
+                },
+              ],
+            },
+            {
+              featureType: "road",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#ffffff",
+                },
+              ],
+            },
+            {
+              featureType: "road.arterial",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#757575",
+                },
+              ],
+            },
+            {
+              featureType: "road.highway",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#dadada",
+                },
+              ],
+            },
+            {
+              featureType: "road.highway",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#616161",
+                },
+              ],
+            },
+            {
+              featureType: "road.local",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#9e9e9e",
+                },
+              ],
+            },
+            {
+              featureType: "transit.line",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#e5e5e5",
+                },
+              ],
+            },
+            {
+              featureType: "transit.station",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#eeeeee",
+                },
+              ],
+            },
+            {
+              featureType: "water",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#c9c9c9",
+                },
+              ],
+            },
+            {
+              featureType: "water",
+              elementType: "geometry.fill",
+              stylers: [
+                {
+                  color: "#b6a172",
+                },
+              ],
+            },
+            {
+              featureType: "water",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#9e9e9e",
+                },
+              ],
+            },
+          ],
+        });
+
+        const FromAlmatyToGlobalFlight = [
+          { lat: 43.325, lng: 76.915 },
+          { lat: 37.5663, lng: 126.9997 }, // Seoul
+          { lat: 43.325, lng: 76.915 },
+          { lat: 22.3193, lng: 114.1694 }, // Hong Kong
+          { lat: 43.325, lng: 76.915 },
+          { lat: 39.9289, lng: 116.3883 }, // Beijing
+          { lat: 43.325, lng: 76.915 },
+          { lat: 13.75, lng: 100.5166 }, // Bangkok
+          { lat: 43.325, lng: 76.915 },
+          { lat: 3.139, lng: 101.6869 }, // Kuala Lumpur
+          { lat: 43.325, lng: 76.915 },
+          { lat: 43.8256, lng: 87.6168 }, // Urumqi
+          { lat: 43.325, lng: 76.915 },
+          { lat: 28.67, lng: 77.23 }, // Delhi
+          { lat: 43.325, lng: 76.915 },
+          { lat: 38.56, lng: 68.7739 }, // Dushanbe
+          { lat: 43.325, lng: 76.915 },
+          { lat: 41.3117, lng: 69.2949 }, // Tashkent
+          { lat: 43.325, lng: 76.915 },
+          { lat: 25.23, lng: 55.28 }, // Dubai
+          { lat: 43.325, lng: 76.915 },
+          { lat: 42.8731, lng: 74.5852 }, // Bishkek
+          { lat: 43.325, lng: 76.915 },
+          { lat: 40.3953, lng: 49.8622 }, // Baku
+          { lat: 43.325, lng: 76.915 },
+          { lat: 41.725, lng: 44.7908 }, // Tbilisi
+          { lat: 43.325, lng: 76.915 },
+          { lat: 36.89, lng: 30.7 }, // Antalya
+          { lat: 43.325, lng: 76.915 },
+          { lat: 55.7522, lng: 37.6155 }, // Moscow
+          { lat: 43.325, lng: 76.915 },
+          { lat: 59.9343, lng: 30.3351 }, // Saint Petersburg
+          { lat: 43.325, lng: 76.915 },
+          { lat: 50.4501, lng: 30.5234 }, // Kiev
+          { lat: 43.325, lng: 76.915 },
+          { lat: 41.105, lng: 29.01 }, // Istambul
+        ];
+
+        const AlmatyGlobalFlights = new google.maps.Polyline({
+          path: FromAlmatyToGlobalFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        AlmatyGlobalFlights.setMap(map);
+
+        // разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы
+
+        const FromAlmatyToDomesticFlight = [
+          { lat: 43.325, lng: 76.915 },
+          { lat: 51.1811, lng: 71.4278 }, // Nur-Sultan
+          { lat: 43.325, lng: 76.915 },
+          { lat: 49.9749, lng: 82.6017 }, // Ust-Kamenogorsk
+          { lat: 43.325, lng: 76.915 },
+          { lat: 44.8488, lng: 65.4823 }, // Kyzylorda
+          { lat: 43.325, lng: 76.915 },
+          { lat: 47.0945, lng: 51.9238 }, // Atyrau
+          { lat: 43.325, lng: 76.915 },
+          { lat: 50.2839, lng: 57.167 }, // Aqtobe
+          { lat: 43.325, lng: 76.915 },
+          { lat: 43.6588, lng: 51.1975 }, // Aqtau
+          { lat: 43.325, lng: 76.915 },
+          { lat: 42.32, lng: 69.595 }, // Shymkent
+        ];
+
+        const AlmatyDomesticFlights = new google.maps.Polyline({
+          path: FromAlmatyToDomesticFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        AlmatyDomesticFlights.setMap(map);
+
+        const FromNurSultanToGlobalFlight = [
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 37.5663, lng: 126.9997 }, // Seoul
+          //   { lat: 51.1811, lng: 71.4278 },
+          //   { lat: 22.3193, lng: 114.1694 }, // Hong Kong
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 39.9289, lng: 116.3883 }, // Beijing
+          //   { lat: 51.1811, lng: 71.4278 },
+          //   { lat: 13.75, lng: 100.5166 }, // Bangkok
+          //   { lat: 51.1811, lng: 71.4278 },
+          //   { lat: 3.139, lng: 101.6869 }, // Kuala Lumpur
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 43.8256, lng: 87.6168 }, // Urumqi
+          //   { lat: 51.1811, lng: 71.4278 },
+          //   { lat: 28.67, lng: 77.23 }, // Delhi
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 38.56, lng: 68.7739 }, // Dushanbe
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 41.3117, lng: 69.2949 }, // Tashkent
+          //   { lat: 51.1811, lng: 71.4278 },
+          //   { lat: 25.23, lng: 55.28 }, // Dubai
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 42.8731, lng: 74.5852 }, // Bishkek
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 40.3953, lng: 49.8622 }, // Baku
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 41.725, lng: 44.7908 }, // Tbilisi
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 36.89, lng: 30.7 }, // Antalya
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 55.03, lng: 82.96 }, // Novosibirsk
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 54.99, lng: 73.4 }, // Omsk
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 56.85, lng: 60.6 }, // Yekaterinburg
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 55.8304, lng: 49.0661 }, // Kazan
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 55.7522, lng: 37.6155 }, // Moscow
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 59.9343, lng: 30.3351 }, // Saint Petersburg
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 50.4501, lng: 30.5234 }, // Kiev
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 41.105, lng: 29.01 }, // Istambul
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 51.47, lng: 0.4543 }, // London Heathrow
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 48.8667, lng: 2.3333 }, // Paris
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 50.1, lng: 8.675 }, // Frankfurt
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 52.35, lng: 4.9166 }, // Amsterdam
+        ];
+
+        const nurSultanGlobalFlights = new google.maps.Polyline({
+          path: FromNurSultanToGlobalFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+
+        nurSultanGlobalFlights.setMap(map);
+
+        const FromNurSultanToDomesticFlight = [
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 43.325, lng: 76.915 }, // Almaty
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 49.9749, lng: 82.6017 }, // Ust-Kamenogorsk
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 44.8488, lng: 65.4823 }, // Kyzylorda
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 47.0945, lng: 51.9238 }, // Atyrau
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 50.2839, lng: 57.167 }, // Aqtobe
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 43.6588, lng: 51.1975 }, // Aqtau
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 42.32, lng: 69.595 }, // Shymkent
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 51.2278, lng: 51.3865 }, // Uralsk
+        ];
+
+        const NurSultanDomesticFlights = new google.maps.Polyline({
+          path: FromNurSultanToDomesticFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        NurSultanDomesticFlights.setMap(map);
+
+        const FromKostanayToGlobalFlight = [
+          { lat: 53.2198, lng: 63.6354 },
+          { lat: 52.366667, lng: 9.716667 }, // hannover
+        ];
+
+        const KostanayGlobalFlights = new google.maps.Polyline({
+          path: FromKostanayToGlobalFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        KostanayGlobalFlights.setMap(map);
+
+        const FromUralskToGlobalFlight = [
+          { lat: 51.2278, lng: 51.3865 },
+          { lat: 52.35, lng: 4.9166 }, // Amsterdam
+        ];
+
+        const UralskGlobalFlights = new google.maps.Polyline({
+          path: FromUralskToGlobalFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        UralskGlobalFlights.setMap(map);
+
+        const FromAtyrauToGlobalFlight = [
+          { lat: 51.2278, lng: 51.3865 },
+          { lat: 52.35, lng: 4.9166 }, // Amsterdam
+          { lat: 51.2278, lng: 51.3865 },
+          { lat: 50.1, lng: 8.675 }, // Frankfurt
+          { lat: 51.2278, lng: 51.3865 },
+          { lat: 41.105, lng: 29.01 }, // Istambul
+        ];
+
+        const AtyrauGlobalFlights = new google.maps.Polyline({
+          path: FromAtyrauToGlobalFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        AtyrauGlobalFlights.setMap(map);
+
+        const image = "https://airastana.com/Portals/2/Plan/Flight-Information/icons/icon.png?ver=2020-08-18-133022-133";
+        const image2 = "https://airastana.com/Portals/2/Plan/Flight-Information/icons/icon2.png?ver=2020-08-18-133022-277";
+
+        const NurSultan = new google.maps.Marker({
+          position: {
+            lat: 51.1811,
+            lng: 71.4278,
+          },
+          map: map,
+          icon: image,
+        });
+        const Almaty = new google.maps.Marker({
+          position: { lat: 43.325, lng: 76.915 },
+          map: map,
+          icon: image,
+        });
+
+        const Seoul = new google.maps.Marker({
+          position: { lat: 37.5663, lng: 126.9997 }, // Seoul
+          map: map,
+          icon: image2,
+        });
+        const HongKong = new google.maps.Marker({
+          position: { lat: 22.3193, lng: 114.1694 }, // Hong Kong
+          map: map,
+          icon: image2,
+        });
+        const Beijing = new google.maps.Marker({
+          position: { lat: 39.9289, lng: 116.3883 }, // Beijing
+          map: map,
+          icon: image2,
+        });
+        const Bangkok = new google.maps.Marker({
+          position: { lat: 13.75, lng: 100.5166 }, // Bangkok
+          map: map,
+          icon: image2,
+        });
+        const KualaLumpur = new google.maps.Marker({
+          position: { lat: 3.139, lng: 101.6869 }, // Kuala Lumpur
+          map: map,
+          icon: image2,
+        });
+        const Urumqi = new google.maps.Marker({
+          position: { lat: 43.8256, lng: 87.6168 }, // Urumqi
+          map: map,
+          icon: image2,
+        });
+        const Delhi = new google.maps.Marker({
+          position: { lat: 28.67, lng: 77.23 }, // Delhi
+          map: map,
+          icon: image2,
+        });
+        const Dushanbe = new google.maps.Marker({
+          position: { lat: 38.56, lng: 68.7739 }, // Dushanbe
+          map: map,
+          icon: image2,
+        });
+        const Tashkent = new google.maps.Marker({
+          position: { lat: 41.3117, lng: 69.2949 }, // Tashkent
+          map: map,
+          icon: image2,
+        });
+        const Dubai = new google.maps.Marker({
+          position: { lat: 25.23, lng: 55.28 }, // Dubai
+          map: map,
+          icon: image2,
+        });
+        const Bishkek = new google.maps.Marker({
+          position: { lat: 42.8731, lng: 74.5852 }, // Bishkek
+          map: map,
+          icon: image2,
+        });
+        const Baku = new google.maps.Marker({
+          position: { lat: 40.3953, lng: 49.8622 }, // Baku
+          map: map,
+          icon: image2,
+        });
+        const Tbilisi = new google.maps.Marker({
+          position: { lat: 41.725, lng: 44.7908 }, // Tbilisi
+          map: map,
+          icon: image2,
+        });
+        const Antalya = new google.maps.Marker({
+          position: { lat: 36.89, lng: 30.7 }, // Antalya
+          map: map,
+          icon: image2,
+        });
+        const Moscow = new google.maps.Marker({
+          position: { lat: 55.7522, lng: 37.6155 }, // Moscow
+          map: map,
+          icon: image2,
+        });
+        const SaintPetersburg = new google.maps.Marker({
+          position: { lat: 59.9343, lng: 30.3351 }, // Saint Petersburg
+          map: map,
+          icon: image2,
+        });
+        const Kiev = new google.maps.Marker({
+          position: { lat: 50.4501, lng: 30.5234 }, // Kiev
+          map: map,
+          icon: image2,
+        });
+        const Istambul = new google.maps.Marker({
+          position: { lat: 41.105, lng: 29.01 }, // Istambul
+          map: map,
+          icon: image2,
+        });
+        const Novosibirsk = new google.maps.Marker({
+          position: { lat: 55.03, lng: 82.96 }, // Novosibirsk
+          map: map,
+          icon: image2,
+        });
+        const Omsk = new google.maps.Marker({
+          position: { lat: 54.99, lng: 73.4 }, // Omsk
+          map: map,
+          icon: image2,
+        });
+        const Yekaterinburg = new google.maps.Marker({
+          position: { lat: 56.85, lng: 60.6 }, // Yekaterinburg
+          map: map,
+          icon: image2,
+        });
+        const Kazan = new google.maps.Marker({
+          position: { lat: 55.8304, lng: 49.0661 }, // Kazan
+          map: map,
+          icon: image2,
+        });
+        const LondonHeathrow = new google.maps.Marker({
+          position: { lat: 51.47, lng: 0.4543 }, // London Heathrow
+          map: map,
+          icon: image2,
+        });
+        const Paris = new google.maps.Marker({
+          position: { lat: 48.8667, lng: 2.3333 }, // Paris
+          map: map,
+          icon: image2,
+        });
+        const Frankfurt = new google.maps.Marker({
+          position: { lat: 50.1, lng: 8.675 }, // Frankfurt
+          map: map,
+          icon: image2,
+        });
+        const Amsterdam = new google.maps.Marker({
+          position: { lat: 52.35, lng: 4.9166 }, // Amsterdam
+          map: map,
+          icon: image2,
+        });
+        const hannover = new google.maps.Marker({
+          position: { lat: 52.366667, lng: 9.716667 }, // hannover
+          map: map,
+          icon: image2,
+        });
+        const UstKamenogorsk = new google.maps.Marker({
+          position: { lat: 49.9749, lng: 82.6017 }, // Ust-Kamenogorsk
+          map: map,
+          icon: image2,
+        });
+        const Kyzylorda = new google.maps.Marker({
+          position: { lat: 44.8488, lng: 65.4823 }, // Kyzylorda
+          map: map,
+          icon: image2,
+        });
+        const Atyrau = new google.maps.Marker({
+          position: { lat: 47.0945, lng: 51.9238 }, // Atyrau
+          map: map,
+          icon: image2,
+        });
+        const Aqtobe = new google.maps.Marker({
+          position: { lat: 50.2839, lng: 57.167 }, // Aqtobe
+          map: map,
+          icon: image2,
+        });
+        const Aqtau = new google.maps.Marker({
+          position: { lat: 43.6588, lng: 51.1975 }, // Aqtau
+          map: map,
+          icon: image2,
+        });
+        const Shymkent = new google.maps.Marker({
+          position: { lat: 42.32, lng: 69.595 }, // Shymkent
+          map: map,
+          icon: image2,
+        });
+        const Uralsk = new google.maps.Marker({
+          position: { lat: 51.2278, lng: 51.3865 }, // Uralsk
+          map: map,
+          icon: image2,
+        });                
+      }
+    </script>
+
+    <!-- Replace following script src -->
+    <script src="/maps/documentation/javascript/examples/markerclusterer/markerclustererplus@4.0.1.min.js"></script>
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWawW_kOFE7YBVVdjQMq_fkBEA9Erb9Ks&callback=initMap"
+    ></script>
+  </body>
 </html>
