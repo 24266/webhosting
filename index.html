@@ -254,7 +254,7 @@
           path: FromAlmatyToGlobalFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.1,
+          strokeOpacity: 0.3,
           strokeWeight: 2,
         });
         AlmatyGlobalFlights.setMap(map);
@@ -280,7 +280,7 @@
           path: FromAlmatyToDomesticFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.1,
+          strokeOpacity: 0.3,
           strokeWeight: 2,
         });
         AlmatyDomesticFlights.setMap(map);
@@ -344,7 +344,7 @@
           path: FromNurSultanToGlobalFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.1,
+          strokeOpacity: 0.3,
           strokeWeight: 2,
         });
 
@@ -373,21 +373,21 @@
           path: FromNurSultanToDomesticFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.1,
+          strokeOpacity: 0.3,
           strokeWeight: 2,
         });
         NurSultanDomesticFlights.setMap(map);
         // РЕЙСЫ ИЗ КОСТАНАЯ
         const FromKostanayToGlobalFlight = [
           { lat: 53.2198, lng: 63.6354 },
-          { lat: 52.366667, lng: 9.716667 }, // hannover
+          { lat: 52.366667, lng: 9.716667 }, // Hannover
         ];
         // ЛИНИИ ИЗ КОСТАНАЯ В ДРУГИЕ ГОРОДА (ЦВЕТ, ТОЛЩИНА, ПРОЗРАЧНОСТЬ)
         const KostanayGlobalFlights = new google.maps.Polyline({
           path: FromKostanayToGlobalFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.1,
+          strokeOpacity: 0.3,
           strokeWeight: 2,
         });
         KostanayGlobalFlights.setMap(map);
@@ -401,7 +401,7 @@
           path: FromUralskToGlobalFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.1,
+          strokeOpacity: 0.3,
           strokeWeight: 2,
         });
         UralskGlobalFlights.setMap(map);
@@ -419,19 +419,90 @@
           path: FromAtyrauToGlobalFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.1,
+          strokeOpacity: 0.3,
           strokeWeight: 2,
         });
         AtyrauGlobalFlights.setMap(map);
         // ЛОГО ГОРОДОВ
-        const image = "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsWithName/nur-sultan.png?ver=2020-08-20-083122-520";
-        const image1 = "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsWithName/almaty.png?ver=2020-08-20-083122-160";
-        const image2 = "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsWithName/cityname2.png?ver=2020-08-20-083122-300";
+        const imageNurSultan =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsWithName/nur-sultan.png?ver=2020-08-20-083122-520";
+        const imageAlmaty =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsWithName/almaty.png?ver=2020-08-20-083122-160";
+        const imageSeoul =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Seoul1.png?ver=2020-08-20-094737-610";
+        const imageHongKong =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Hong%20Kong.png?ver=2020-08-20-094736-360";
+        const imageBeijing =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Beijing.png?ver=2020-08-20-094735-687";
+        const imageBangkok =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Bangkok.png?ver=2020-08-20-094735-547";
+        const imageKualaLumpur =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Kuala%20Lumpur.png?ver=2020-08-20-094736-783";
+        const imageUrumqi =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Urumqi.png?ver=2020-08-20-094738-140";
+        const imageDelhi =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Delhi.png?ver=2020-08-20-094735-890";
+        const imageDushanbe =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Dushanbe.png?ver=2020-08-20-094736-127";
+        const imageTashkent =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Tashkent.png?ver=2020-08-20-094737-813";
+        const imageDubai =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Dubai.png?ver=2020-08-20-094735-953";
+        const imageBishkek =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Bishkek.png?ver=2020-08-20-094735-750";
+        const imageBaku =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Baku.png?ver=2020-08-20-094735-437";
+        const imageTbilisi =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Tbilisi.png?ver=2020-08-20-094738-140";
+        const imageAntalya =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Antalya.png?ver=2020-08-20-094735-330";
+        const imageMoscow =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Moscow.png?ver=2020-08-20-094737-173";
+        const imageSaintPetersburg =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/fixedpictures/Saint%C2%A0Petersburg.png?ver=2020-08-20-104438-150";
+        const imageKiev =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Kiev.png?ver=2020-08-20-094736-783";
+        const imageIstambul =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Istambul.png?ver=2020-08-20-094736-547";
+        const imageNovosibirsk =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Novosibirsk.png?ver=2020-08-20-094737-203";
+        const imageOmsk =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Omsk.png?ver=2020-08-20-094737-407";
+        const imageYekaterinburg =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Yekaterinburg.png?ver=2020-08-20-094738-330";
+        const imageKazan =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Kazan.png?ver=2020-08-20-094736-580";
+        const imageLondonHeathrow =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/London%C2%A0.png?ver=2020-08-20-094736-970";
+        const imageParis =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Paris.png?ver=2020-08-20-094737-390";
+        const imageFrankfurt =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Frankfurt.png?ver=2020-08-20-094736-157";
+        const imageAmsterdam =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Amsterdam.png?ver=2020-08-20-094735-330";
+        const imageHannover =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Hannover.png?ver=2020-08-20-094736-330";
+        const imageUstKamenogorsk =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/fixedpictures/Ust-Kamenogorsk.png?ver=2020-08-20-104438-243";
+        const imageKyzylorda =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Kyzylorda.png?ver=2020-08-20-094737-017";
+        const imageAtyrau =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Atyrau.png?ver=2020-08-20-094735-343";
+        const imageAqtobe =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Aqtobe.png?ver=2020-08-20-094735-330";
+        const imageAqtau =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Aqtau.png?ver=2020-08-20-094735-330";
+        const imageShymkent =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Shymkent.png?ver=2020-08-20-094737-797";
+        const imageUralsk =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Uralsk.png?ver=2020-08-20-103918-793";
+        const imageKostanay =
+          "https://airastana.com/Portals/2/Plan/Flight-Information/icons/iconsGlobalCities/Kostanay.png?ver=2020-08-20-103918-807";
         // ПОЗИЦИИ ЛОГО/КАРТИНОК1
         const NurSultan = new google.maps.Marker({
           position: { lat: 51.1811, lng: 71.4278 },
           map: map,
-          icon: image,
+          icon: imageNurSultan,
           // label: "Test",
           title: "Nur-Sultan",
           animation: google.maps.Animation.DROP,
@@ -443,212 +514,219 @@
           map: map,
           animation: google.maps.Animation.DROP,
           title: "Almaty",
-          icon: image1,
+          icon: imageAlmaty,
         });
         // ПОЗИЦИИ ЛОГО/КАРТИНОК2
         const Seoul = new google.maps.Marker({
           position: { lat: 37.5663, lng: 126.9997 }, // Seoul
           map: map,
           title: "Seoul",
-          icon: image2,
+          icon: imageSeoul,
         });
         const HongKong = new google.maps.Marker({
           position: { lat: 22.3193, lng: 114.1694 }, // Hong Kong
           map: map,
           title: "Hong Kong",
-          icon: image2,
+          icon: imageHongKong,
         });
         const Beijing = new google.maps.Marker({
           position: { lat: 39.9289, lng: 116.3883 }, // Beijing
           map: map,
           title: "Beijing",
-          icon: image2,
+          icon: imageBeijing,
         });
         const Bangkok = new google.maps.Marker({
           position: { lat: 13.75, lng: 100.5166 }, // Bangkok
           map: map,
           title: "Bangkok",
-          icon: image2,
+          icon: imageBangkok,
         });
         const KualaLumpur = new google.maps.Marker({
           position: { lat: 3.139, lng: 101.6869 }, // Kuala Lumpur
           map: map,
           title: "Kuala Lumpur",
-          icon: image2,
+          icon: imageKualaLumpur,
         });
         const Urumqi = new google.maps.Marker({
           position: { lat: 43.8256, lng: 87.6168 }, // Urumqi
           map: map,
           title: "Urumqi",
-          icon: image2,
+          icon: imageUrumqi,
         });
         const Delhi = new google.maps.Marker({
           position: { lat: 28.67, lng: 77.23 }, // Delhi
           map: map,
           title: "Delhi",
-          icon: image2,
+          icon: imageDelhi,
         });
         const Dushanbe = new google.maps.Marker({
           position: { lat: 38.56, lng: 68.7739 }, // Dushanbe
           map: map,
           title: "Dushanbe",
-          icon: image2,
+          icon: imageDushanbe,
         });
         const Tashkent = new google.maps.Marker({
           position: { lat: 41.3117, lng: 69.2949 }, // Tashkent
           map: map,
           title: "Tashkent",
-          icon: image2,
+          icon: imageTashkent,
         });
         const Dubai = new google.maps.Marker({
           position: { lat: 25.23, lng: 55.28 }, // Dubai
           map: map,
           title: "Dubai",
-          icon: image2,
+          icon: imageDubai,
         });
         const Bishkek = new google.maps.Marker({
           position: { lat: 42.8731, lng: 74.5852 }, // Bishkek
           map: map,
           title: "Bishkek",
-          icon: image2,
+          icon: imageBishkek,
         });
         const Baku = new google.maps.Marker({
           position: { lat: 40.3953, lng: 49.8622 }, // Baku
           map: map,
           title: "Baku",
-          icon: image2,
+          icon: imageBaku,
         });
         const Tbilisi = new google.maps.Marker({
           position: { lat: 41.725, lng: 44.7908 }, // Tbilisi
           map: map,
           title: "Tbilisi",
-          icon: image2,
+          icon: imageTbilisi,
         });
         const Antalya = new google.maps.Marker({
           position: { lat: 36.89, lng: 30.7 }, // Antalya
           map: map,
           title: "Antalya",
-          icon: image2,
+          icon: imageAntalya,
         });
         const Moscow = new google.maps.Marker({
           position: { lat: 55.7522, lng: 37.6155 }, // Moscow
           map: map,
           title: "Moscow",
-          icon: image2,
+          icon: imageMoscow,
         });
         const SaintPetersburg = new google.maps.Marker({
           position: { lat: 59.9343, lng: 30.3351 }, // Saint Petersburg
           map: map,
           title: "Saint Petersburg",
-          icon: image2,
+          icon: imageSaintPetersburg,
         });
         const Kiev = new google.maps.Marker({
           position: { lat: 50.4501, lng: 30.5234 }, // Kiev
           map: map,
           title: "Kiev",
-          icon: image2,
+          icon: imageKiev,
         });
         const Istambul = new google.maps.Marker({
           position: { lat: 41.105, lng: 29.01 }, // Istambul
           map: map,
           title: "Istambul",
-          icon: image2,
+          icon: imageIstambul,
         });
         const Novosibirsk = new google.maps.Marker({
           position: { lat: 55.03, lng: 82.96 }, // Novosibirsk
           map: map,
           title: "Novosibirsk",
-          icon: image2,
+          icon: imageNovosibirsk,
         });
         const Omsk = new google.maps.Marker({
           position: { lat: 54.99, lng: 73.4 }, // Omsk
           map: map,
           title: "Omsk",
-          icon: image2,
+          icon: imageOmsk,
         });
         const Yekaterinburg = new google.maps.Marker({
           position: { lat: 56.85, lng: 60.6 }, // Yekaterinburg
           map: map,
           title: "Yekaterinburg",
-          icon: image2,
+          icon: imageYekaterinburg,
         });
         const Kazan = new google.maps.Marker({
           position: { lat: 55.8304, lng: 49.0661 }, // Kazan
           map: map,
           title: "Kazan",
-          icon: image2,
+          icon: imageKazan,
         });
         const LondonHeathrow = new google.maps.Marker({
           position: { lat: 51.47, lng: 0.4543 }, // London Heathrow
           map: map,
           title: "London Heathrow",
-          icon: image2,
+          icon: imageLondonHeathrow,
         });
         const Paris = new google.maps.Marker({
           position: { lat: 48.8667, lng: 2.3333 }, // Paris
           map: map,
           title: "Paris",
-          icon: image2,
+          icon: imageParis,
         });
         const Frankfurt = new google.maps.Marker({
           position: { lat: 50.1, lng: 8.675 }, // Frankfurt
           map: map,
           title: "Frankfurt",
-          icon: image2,
+          icon: imageFrankfurt,
         });
         const Amsterdam = new google.maps.Marker({
           position: { lat: 52.35, lng: 4.9166 }, // Amsterdam
           map: map,
           title: "Amsterdam",
-          icon: image2,
+          icon: imageAmsterdam,
         });
         const hannover = new google.maps.Marker({
           position: { lat: 52.366667, lng: 9.716667 }, // hannover
           map: map,
           title: "Hannover",
-          icon: image2,
+          icon: imageHannover,
         });
         const UstKamenogorsk = new google.maps.Marker({
           position: { lat: 49.9749, lng: 82.6017 }, // Ust-Kamenogorsk
           map: map,
           title: "Ust-Kamenogorsk",
-          icon: image2,
+          icon: imageUstKamenogorsk,
         });
         const Kyzylorda = new google.maps.Marker({
           position: { lat: 44.8488, lng: 65.4823 }, // Kyzylorda
           map: map,
           title: "Kyzylorda",
-          icon: image2,
+          icon: imageKyzylorda,
         });
         const Atyrau = new google.maps.Marker({
           position: { lat: 47.0945, lng: 51.9238 }, // Atyrau
           map: map,
           title: "Atyrau",
-          icon: image2,
+          icon: imageAtyrau,
         });
         const Aqtobe = new google.maps.Marker({
           position: { lat: 50.2839, lng: 57.167 }, // Aqtobe
           map: map,
           title: "Aqtobe",
-          icon: image2,
+          icon: imageAqtobe,
         });
         const Aqtau = new google.maps.Marker({
           position: { lat: 43.6588, lng: 51.1975 }, // Aqtau
           map: map,
           title: "Aqtau",
-          icon: image2,
+          icon: imageAqtau,
         });
         const Shymkent = new google.maps.Marker({
           position: { lat: 42.32, lng: 69.595 }, // Shymkent
           map: map,
           title: "Shymkent",
-          icon: image2,
+          icon: imageShymkent,
         });
         const Uralsk = new google.maps.Marker({
           position: { lat: 51.2278, lng: 51.3865 }, // Uralsk
           map: map,
           title: "Uralsk",
-          icon: image2,
+          icon: imageUralsk,
+        });
+        const Kostanay = new google.maps.Marker({
+          position: { lat: 53.2198, lng: 63.6354 }, // Kostanay
+
+          map: map,
+          title: "Kostanay",
+          icon: imageKostanay,
         });
       }
     </script>
