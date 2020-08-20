@@ -20,13 +20,15 @@
     </style>
   </head>
   <body>
+    <!-- ГЛАВНОЕ СОСТОВЛЯЮЩИЕ КОДА -->
     <div id="map"></div>
-
+    <!-- Основной код гугл карты ниже -->
     <script>
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           center: { lat: 45.4507, lng: 68.8319 },
           zoom: 4,
+          disableDefaultUI: true,
           styles: [
             {
               elementType: "geometry",
@@ -208,7 +210,7 @@
             },
           ],
         });
-
+        // РЕЙСЫ ИЗ АЛМАТЫ
         const FromAlmatyToGlobalFlight = [
           { lat: 43.325, lng: 76.915 },
           { lat: 37.5663, lng: 126.9997 }, // Seoul
@@ -247,7 +249,7 @@
           { lat: 43.325, lng: 76.915 },
           { lat: 41.105, lng: 29.01 }, // Istambul
         ];
-
+        // ЛИНИИ ИЗ АЛМАТЫ В ДРУГИЕ ГОРОДА (ЦВЕТ, ТОЛЩИНА, ПРОЗРАЧНОСТЬ)
         const AlmatyGlobalFlights = new google.maps.Polyline({
           path: FromAlmatyToGlobalFlight,
           geodesic: true,
@@ -256,9 +258,7 @@
           strokeWeight: 2,
         });
         AlmatyGlobalFlights.setMap(map);
-
-        // разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы
-
+        // РЕЙСЫ ИЗ АЛМАТЫ ПО КАЗАХСТАНУ
         const FromAlmatyToDomesticFlight = [
           { lat: 43.325, lng: 76.915 },
           { lat: 51.1811, lng: 71.4278 }, // Nur-Sultan
@@ -275,7 +275,7 @@
           { lat: 43.325, lng: 76.915 },
           { lat: 42.32, lng: 69.595 }, // Shymkent
         ];
-
+        // ЛИНИИ ИЗ АЛМАТЫ В ДРУГИЕ ГОРОДА (ЦВЕТ, ТОЛЩИНА, ПРОЗРАЧНОСТЬ)
         const AlmatyDomesticFlights = new google.maps.Polyline({
           path: FromAlmatyToDomesticFlight,
           geodesic: true,
@@ -284,7 +284,7 @@
           strokeWeight: 2,
         });
         AlmatyDomesticFlights.setMap(map);
-
+        // РЕЙСЫ ИЗ НУР-СУЛТАНА
         const FromNurSultanToGlobalFlight = [
           { lat: 51.1811, lng: 71.4278 },
           { lat: 37.5663, lng: 126.9997 }, // Seoul
@@ -339,7 +339,7 @@
           { lat: 51.1811, lng: 71.4278 },
           { lat: 52.35, lng: 4.9166 }, // Amsterdam
         ];
-
+        // ЛИНИИ ИЗ НУР-СУЛТАНА В ДРУГИЕ ГОРОДА (ЦВЕТ, ТОЛЩИНА, ПРОЗРАЧНОСТЬ)
         const nurSultanGlobalFlights = new google.maps.Polyline({
           path: FromNurSultanToGlobalFlight,
           geodesic: true,
@@ -349,7 +349,7 @@
         });
 
         nurSultanGlobalFlights.setMap(map);
-
+        // РЕЙСЫ ИЗ НУР-СУЛТАНА ПО КАЗАХСТАНУ
         const FromNurSultanToDomesticFlight = [
           { lat: 51.1811, lng: 71.4278 },
           { lat: 43.325, lng: 76.915 }, // Almaty
@@ -368,7 +368,7 @@
           { lat: 51.1811, lng: 71.4278 },
           { lat: 51.2278, lng: 51.3865 }, // Uralsk
         ];
-
+        // ЛИНИИ ИЗ НУР-СУЛТАНА В ДРУГИЕ ГОРОДА (ЦВЕТ, ТОЛЩИНА, ПРОЗРАЧНОСТЬ)
         const NurSultanDomesticFlights = new google.maps.Polyline({
           path: FromNurSultanToDomesticFlight,
           geodesic: true,
@@ -377,12 +377,12 @@
           strokeWeight: 2,
         });
         NurSultanDomesticFlights.setMap(map);
-
+        // РЕЙСЫ ИЗ КОСТАНАЯ
         const FromKostanayToGlobalFlight = [
           { lat: 53.2198, lng: 63.6354 },
           { lat: 52.366667, lng: 9.716667 }, // hannover
         ];
-
+        // ЛИНИИ ИЗ КОСТАНАЯ В ДРУГИЕ ГОРОДА (ЦВЕТ, ТОЛЩИНА, ПРОЗРАЧНОСТЬ)
         const KostanayGlobalFlights = new google.maps.Polyline({
           path: FromKostanayToGlobalFlight,
           geodesic: true,
@@ -391,12 +391,12 @@
           strokeWeight: 2,
         });
         KostanayGlobalFlights.setMap(map);
-
+        // РЕЙСЫ ИЗ УРАЛЬСКА
         const FromUralskToGlobalFlight = [
           { lat: 51.2278, lng: 51.3865 },
           { lat: 52.35, lng: 4.9166 }, // Amsterdam
         ];
-
+        // ЛИНИИ ИЗ УРАЛЬСКА В ДРУГИЕ ГОРОДА (ЦВЕТ, ТОЛЩИНА, ПРОЗРАЧНОСТЬ)
         const UralskGlobalFlights = new google.maps.Polyline({
           path: FromUralskToGlobalFlight,
           geodesic: true,
@@ -405,7 +405,7 @@
           strokeWeight: 2,
         });
         UralskGlobalFlights.setMap(map);
-
+        // // РЕЙСЫ ИЗ АТЫРАУ
         const FromAtyrauToGlobalFlight = [
           { lat: 51.2278, lng: 51.3865 },
           { lat: 52.35, lng: 4.9166 }, // Amsterdam
@@ -414,7 +414,7 @@
           { lat: 51.2278, lng: 51.3865 },
           { lat: 41.105, lng: 29.01 }, // Istambul
         ];
-
+        // ЛИНИИ ИЗ АТЫРАУ В ДРУГИЕ ГОРОДА (ЦВЕТ, ТОЛЩИНА, ПРОЗРАЧНОСТЬ)
         const AtyrauGlobalFlights = new google.maps.Polyline({
           path: FromAtyrauToGlobalFlight,
           geodesic: true,
@@ -423,194 +423,232 @@
           strokeWeight: 2,
         });
         AtyrauGlobalFlights.setMap(map);
-
-        const image = "https://airastana.com/Portals/2/Plan/Flight-Information/icons/icon.png?ver=2020-08-18-133022-133";
-        const image2 = "https://airastana.com/Portals/2/Plan/Flight-Information/icons/icon2.png?ver=2020-08-18-133022-277";
-
+        // ЛОГО ГОРОДОВ
+        const image = "/icons/nur-sultan.png";
+        const image1 = "/icons/almaty.png";
+        const image2 = "/icons/cityname2.png";
+        // ПОЗИЦИИ ЛОГО/КАРТИНОК1
         const NurSultan = new google.maps.Marker({
-          position: {
-            lat: 51.1811,
-            lng: 71.4278,
-          },
+          position: { lat: 51.1811, lng: 71.4278 },
           map: map,
           icon: image,
+          // label: "Test",
+          title: "Nur-Sultan",
+          animation: google.maps.Animation.DROP,
+          text: "Test",
+          fontSize: 30,
         });
         const Almaty = new google.maps.Marker({
           position: { lat: 43.325, lng: 76.915 },
           map: map,
-          icon: image,
+          title: "Almaty",
+          icon: image1,
         });
-
+        // ПОЗИЦИИ ЛОГО/КАРТИНОК2
         const Seoul = new google.maps.Marker({
           position: { lat: 37.5663, lng: 126.9997 }, // Seoul
           map: map,
+          title: "Seoul",
           icon: image2,
         });
         const HongKong = new google.maps.Marker({
           position: { lat: 22.3193, lng: 114.1694 }, // Hong Kong
           map: map,
+          title: "Hong Kong",
           icon: image2,
         });
         const Beijing = new google.maps.Marker({
           position: { lat: 39.9289, lng: 116.3883 }, // Beijing
           map: map,
+          title: "Beijing",
           icon: image2,
         });
         const Bangkok = new google.maps.Marker({
           position: { lat: 13.75, lng: 100.5166 }, // Bangkok
           map: map,
+          title: "Bangkok",
           icon: image2,
         });
         const KualaLumpur = new google.maps.Marker({
           position: { lat: 3.139, lng: 101.6869 }, // Kuala Lumpur
           map: map,
+          title: "Kuala Lumpur",
           icon: image2,
         });
         const Urumqi = new google.maps.Marker({
           position: { lat: 43.8256, lng: 87.6168 }, // Urumqi
           map: map,
+          title: "Urumqi",
           icon: image2,
         });
         const Delhi = new google.maps.Marker({
           position: { lat: 28.67, lng: 77.23 }, // Delhi
           map: map,
+          title: "Delhi",
           icon: image2,
         });
         const Dushanbe = new google.maps.Marker({
           position: { lat: 38.56, lng: 68.7739 }, // Dushanbe
           map: map,
+          title: "Dushanbe",
           icon: image2,
         });
         const Tashkent = new google.maps.Marker({
           position: { lat: 41.3117, lng: 69.2949 }, // Tashkent
           map: map,
+          title: "Tashkent",
           icon: image2,
         });
         const Dubai = new google.maps.Marker({
           position: { lat: 25.23, lng: 55.28 }, // Dubai
           map: map,
+          title: "Dubai",
           icon: image2,
         });
         const Bishkek = new google.maps.Marker({
           position: { lat: 42.8731, lng: 74.5852 }, // Bishkek
           map: map,
+          title: "Bishkek",
           icon: image2,
         });
         const Baku = new google.maps.Marker({
           position: { lat: 40.3953, lng: 49.8622 }, // Baku
           map: map,
+          title: "Baku",
           icon: image2,
         });
         const Tbilisi = new google.maps.Marker({
           position: { lat: 41.725, lng: 44.7908 }, // Tbilisi
           map: map,
+          title: "Tbilisi",
           icon: image2,
         });
         const Antalya = new google.maps.Marker({
           position: { lat: 36.89, lng: 30.7 }, // Antalya
           map: map,
+          title: "Antalya",
           icon: image2,
         });
         const Moscow = new google.maps.Marker({
           position: { lat: 55.7522, lng: 37.6155 }, // Moscow
           map: map,
+          title: "Moscow",
           icon: image2,
         });
         const SaintPetersburg = new google.maps.Marker({
           position: { lat: 59.9343, lng: 30.3351 }, // Saint Petersburg
           map: map,
+          title: "Saint Petersburg",
           icon: image2,
         });
         const Kiev = new google.maps.Marker({
           position: { lat: 50.4501, lng: 30.5234 }, // Kiev
           map: map,
+          title: "Kiev",
           icon: image2,
         });
         const Istambul = new google.maps.Marker({
           position: { lat: 41.105, lng: 29.01 }, // Istambul
           map: map,
+          title: "Istambul",
           icon: image2,
         });
         const Novosibirsk = new google.maps.Marker({
           position: { lat: 55.03, lng: 82.96 }, // Novosibirsk
           map: map,
+          title: "Novosibirsk",
           icon: image2,
         });
         const Omsk = new google.maps.Marker({
           position: { lat: 54.99, lng: 73.4 }, // Omsk
           map: map,
+          title: "Omsk",
           icon: image2,
         });
         const Yekaterinburg = new google.maps.Marker({
           position: { lat: 56.85, lng: 60.6 }, // Yekaterinburg
           map: map,
+          title: "Yekaterinburg",
           icon: image2,
         });
         const Kazan = new google.maps.Marker({
           position: { lat: 55.8304, lng: 49.0661 }, // Kazan
           map: map,
+          title: "Kazan",
           icon: image2,
         });
         const LondonHeathrow = new google.maps.Marker({
           position: { lat: 51.47, lng: 0.4543 }, // London Heathrow
           map: map,
+          title: "London Heathrow",
           icon: image2,
         });
         const Paris = new google.maps.Marker({
           position: { lat: 48.8667, lng: 2.3333 }, // Paris
           map: map,
+          title: "Paris",
           icon: image2,
         });
         const Frankfurt = new google.maps.Marker({
           position: { lat: 50.1, lng: 8.675 }, // Frankfurt
           map: map,
+          title: "Frankfurt",
           icon: image2,
         });
         const Amsterdam = new google.maps.Marker({
           position: { lat: 52.35, lng: 4.9166 }, // Amsterdam
           map: map,
+          title: "Amsterdam",
           icon: image2,
         });
         const hannover = new google.maps.Marker({
           position: { lat: 52.366667, lng: 9.716667 }, // hannover
           map: map,
+          title: "Hannover",
           icon: image2,
         });
         const UstKamenogorsk = new google.maps.Marker({
           position: { lat: 49.9749, lng: 82.6017 }, // Ust-Kamenogorsk
           map: map,
+          title: "Ust-Kamenogorsk",
           icon: image2,
         });
         const Kyzylorda = new google.maps.Marker({
           position: { lat: 44.8488, lng: 65.4823 }, // Kyzylorda
           map: map,
+          title: "Kyzylorda",
           icon: image2,
         });
         const Atyrau = new google.maps.Marker({
           position: { lat: 47.0945, lng: 51.9238 }, // Atyrau
           map: map,
+          title: "Atyrau",
           icon: image2,
         });
         const Aqtobe = new google.maps.Marker({
           position: { lat: 50.2839, lng: 57.167 }, // Aqtobe
           map: map,
+          title: "Aqtobe",
           icon: image2,
         });
         const Aqtau = new google.maps.Marker({
           position: { lat: 43.6588, lng: 51.1975 }, // Aqtau
           map: map,
+          title: "Aqtau",
           icon: image2,
         });
         const Shymkent = new google.maps.Marker({
           position: { lat: 42.32, lng: 69.595 }, // Shymkent
           map: map,
+          title: "Shymkent",
           icon: image2,
         });
         const Uralsk = new google.maps.Marker({
           position: { lat: 51.2278, lng: 51.3865 }, // Uralsk
           map: map,
+          title: "Uralsk",
           icon: image2,
-        });                
+        });
       }
     </script>
 
