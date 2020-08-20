@@ -254,7 +254,7 @@
           path: FromAlmatyToGlobalFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.5,
+          strokeOpacity: 0.1,
           strokeWeight: 2,
         });
         AlmatyGlobalFlights.setMap(map);
@@ -280,7 +280,7 @@
           path: FromAlmatyToDomesticFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.5,
+          strokeOpacity: 0.1,
           strokeWeight: 2,
         });
         AlmatyDomesticFlights.setMap(map);
@@ -344,7 +344,7 @@
           path: FromNurSultanToGlobalFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.5,
+          strokeOpacity: 0.1,
           strokeWeight: 2,
         });
 
@@ -373,7 +373,7 @@
           path: FromNurSultanToDomesticFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.5,
+          strokeOpacity: 0.1,
           strokeWeight: 2,
         });
         NurSultanDomesticFlights.setMap(map);
@@ -387,7 +387,7 @@
           path: FromKostanayToGlobalFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.5,
+          strokeOpacity: 0.1,
           strokeWeight: 2,
         });
         KostanayGlobalFlights.setMap(map);
@@ -401,7 +401,7 @@
           path: FromUralskToGlobalFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.5,
+          strokeOpacity: 0.1,
           strokeWeight: 2,
         });
         UralskGlobalFlights.setMap(map);
@@ -419,7 +419,7 @@
           path: FromAtyrauToGlobalFlight,
           geodesic: true,
           strokeColor: "#000000",
-          strokeOpacity: 0.5,
+          strokeOpacity: 0.1,
           strokeWeight: 2,
         });
         AtyrauGlobalFlights.setMap(map);
@@ -441,6 +441,7 @@
         const Almaty = new google.maps.Marker({
           position: { lat: 43.325, lng: 76.915 },
           map: map,
+          animation: google.maps.Animation.DROP,
           title: "Almaty",
           icon: image1,
         });
