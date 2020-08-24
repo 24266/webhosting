@@ -27,7 +27,7 @@
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           center: { lat: 38.56, lng: 68.7739 },
-          zoom: 3,
+          zoom: 4,
           disableDefaultUI: false,
           styles: [
             {
@@ -240,8 +240,8 @@
           // { lat: 40.3953, lng: 49.8622 }, // Baku
           // { lat: 43.325, lng: 76.915 },
           // { lat: 41.725, lng: 44.7908 }, // Tbilisi
-          // { lat: 43.325, lng: 76.915 },
-          // { lat: 36.89, lng: 30.7 }, // Antalya
+          { lat: 43.325, lng: 76.915 },
+          { lat: 36.89, lng: 30.7 }, // Antalya
           // { lat: 43.325, lng: 76.915 },
           // { lat: 55.7522, lng: 37.6155 }, // Moscow
           // { lat: 43.325, lng: 76.915 },
@@ -314,8 +314,8 @@
           // { lat: 40.3953, lng: 49.8622 }, // Baku
           // { lat: 51.1811, lng: 71.4278 },
           // { lat: 41.725, lng: 44.7908 }, // Tbilisi
-          // { lat: 51.1811, lng: 71.4278 },
-          // { lat: 36.89, lng: 30.7 }, // Antalya
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 36.89, lng: 30.7 }, // Antalya
           // { lat: 51.1811, lng: 71.4278 },
           // { lat: 55.03, lng: 82.96 }, // Novosibirsk
           // { lat: 51.1811, lng: 71.4278 },
@@ -600,12 +600,12 @@
         //   title: "Tbilisi",
         //   icon: imageTbilisi,
         // });
-        // const Antalya = new google.maps.Marker({
-        //   position: { lat: 36.89, lng: 30.7 }, // Antalya
-        //   map: map,
-        //   title: "Antalya",
-        //   icon: imageAntalya,
-        // });
+        const Antalya = new google.maps.Marker({
+          position: { lat: 36.89, lng: 30.7 }, // Antalya
+          map: map,
+          title: "Antalya",
+          icon: imageAntalya,
+        });
         // const Moscow = new google.maps.Marker({
         //   position: { lat: 55.7522, lng: 37.6155 }, // Moscow
         //   map: map,
