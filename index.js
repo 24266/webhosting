@@ -31,40 +31,40 @@ function initMap() {
 
     // array1 coordinates
     let array1 = [
-        {lat: 43.2220, lng: 76.8512},
-        {lat: 51.1605, lng: 71.4704},
-        {lat: 47.0945, lng: 51.9238},
-        {lat: 51.2278, lng: 51.3865},
-        {lat: 41.0082, lng: 28.9784},
-        {lat: 36.8969, lng: 30.7133},
-        {lat: 50.1109, lng: 8.6821},
-        {lat: 37.5665, lng: 126.9780},
-        {lat: 7.8804, lng: 98.3923},
-        {lat: 52.3676, lng: 4.9041},
-        {lat: 4.1755, lng: 73.5093},
-        {lat: 51.4700, lng: 0.4543},
-        {lat: 13.7563, lng: 100.5018},
-        {lat: 42.4304, lng: 19.2594},
-        {lat: 35.3387, lng: 25.1442},
-        {lat: 30.5723, lng: 104.0665},
-        {lat: 21.4858, lng: 39.1925},
-        {lat: 42.8746, lng: 74.5698},
-        {lat: 25.2048, lng: 55.2708},
-        {lat: 41.2995, lng: 69.2401},
-        {lat: 28.7041, lng: 77.1025},
-        {lat: 41.7151, lng: 44.8271},
-        {lat: 38.5598, lng: 68.7870},
-        {lat: 40.4093, lng: 49.8671},
-        {lat: 41.6168, lng: 41.6367},
-        {lat: 43.6588, lng: 51.1975},
-        {lat: 42.3417, lng: 69.5901},
-        {lat: 50.2839, lng: 57.1670},
-        {lat: 49.9749, lng: 82.6017},
-        {lat: 44.8488, lng: 65.4823},
-        {lat: 53.2198, lng: 63.6354},
-        {lat: 27.9654, lng: 34.3618},
-        {lat: 37.0344, lng: 27.4305},
-        {lat: 15.2993, lng: 74.1240},
+        {lat: 43.2220, lng: 76.8512}, // "Almaty",
+        {lat: 51.1605, lng: 71.4704}, // "Nur-Sultan",
+        {lat: 47.0945, lng: 51.9238}, // "Atyrau",
+        {lat: 51.2278, lng: 51.3865}, // "Uralsk",
+        {lat: 41.0082, lng: 28.9784}, // "Istanbul",
+        {lat: 36.8969, lng: 30.7133}, //  "Antalya",
+        {lat: 50.1109, lng: 8.6821}, //  "Frankfurt",
+        {lat: 37.5665, lng: 126.9780}, //  "Seoul",
+        {lat: 7.8804, lng: 98.3923}, // "Phuket",
+        {lat: 52.3676, lng: 4.9041}, //  "Amsterdam",
+        {lat: 4.1755, lng: 73.5093}, // "Malé",
+        {lat: 51.4700, lng: 0.4543}, // "London Heathrow",
+        {lat: 13.7563, lng: 100.5018}, // "Bangkok",
+        {lat: 42.4304, lng: 19.2594}, // "Podgorica",
+        {lat: 35.3387, lng: 25.1442}, //  "Heraklion",
+        {lat: 30.5723, lng: 104.0665}, //  "Chengdu",
+        // {lat: 21.4858, lng: 39.1925}, //  "Jeddah",
+        {lat: 42.8746, lng: 74.5698}, //  "Bishkek",
+        {lat: 25.2048, lng: 55.2708}, //  "Dubai",
+        {lat: 41.2995, lng: 69.2401}, //  "Tashkent",
+        {lat: 28.7041, lng: 77.1025}, //  "Delhi",
+        {lat: 41.7151, lng: 44.8271}, //  "Tbilisi",
+        {lat: 38.5598, lng: 68.7870}, //  "Dushanbe",
+        {lat: 40.4093, lng: 49.8671}, //  "Baku",
+        {lat: 41.6168, lng: 41.6367}, // "Batumi",
+        {lat: 43.6588, lng: 51.1975}, //  "Aktau",
+        {lat: 42.3417, lng: 69.5901}, // "Shymkent",
+        {lat: 50.2839, lng: 57.1670}, //  "Aktobe",
+        {lat: 49.9749, lng: 82.6017}, // "Ust-Kamenogorsk",
+        {lat: 44.8488, lng: 65.4823}, //  "Kyzylorda",
+        {lat: 53.2198, lng: 63.6354}, //  "Kostanay",
+        {lat: 27.9654, lng: 34.3618}, //  "Sharm El Sheikh",
+        {lat: 37.0344, lng: 27.4305}, // "Bodrum",
+        // {lat: 15.2993, lng: 74.1240}, // "Goa",
 
     ]
 
@@ -86,7 +86,7 @@ function initMap() {
         "Podgorica",
         "Heraklion",
         "Chengdu",
-        "Jeddah",
+        // "Jeddah",
         "Bishkek",
         "Dubai",
         "Tashkent",
@@ -103,7 +103,7 @@ function initMap() {
         "Kostanay",
         "Sharm El Sheikh",
         "Bodrum",
-        "Goa",
+        // "Goa",
     ]
 
     // infowindow with title
@@ -124,7 +124,7 @@ function initMap() {
         '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Podgorica TGD</p>',
         '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Heraklion HER</p>',
         '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Chengdu CTU</p>',
-        '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Jeddah JED</p>',
+        // '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Jeddah JED</p>',
         '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Bishkek FRU</p>',
         '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Dubai DXB</p>',
         '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Tashkent TAS</p>',
@@ -141,7 +141,7 @@ function initMap() {
         '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Kostanay KSN</p>',
         '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Sharm El Sheikh SSH</p>',
         '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Bodrum BJV</p>',
-        '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Goa GOI</p>',
+        // '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Goa GOI</p>',
 
     ]
 
@@ -204,7 +204,7 @@ function initMap() {
             {lat: 43.2220, lng: 76.8512}, {lat: 41.2995, lng: 69.2401},
             {lat: 43.2220, lng: 76.8512}, {lat: 28.7041, lng: 77.1025},
             {lat: 43.2220, lng: 76.8512}, {lat: 41.7151, lng: 44.8271},
-            {lat: 43.2220, lng: 76.8512}, {lat: 38.5598, lng: 68.7870},
+            // {lat: 43.2220, lng: 76.8512}, {lat: 38.5598, lng: 68.7870},
             {lat: 43.2220, lng: 76.8512}, {lat: 40.4093, lng: 49.8671},
             {lat: 43.2220, lng: 76.8512}, {lat: 41.6168, lng: 41.6367},
             {lat: 43.2220, lng: 76.8512}, {lat: 51.1605, lng: 71.4704},
@@ -217,7 +217,7 @@ function initMap() {
             {lat: 43.2220, lng: 76.8512}, {lat: 51.2278, lng: 51.3865},
             {lat: 43.2220, lng: 76.8512}, {lat: 27.9654, lng: 34.3618},
             {lat: 43.2220, lng: 76.8512}, {lat: 37.0344, lng: 27.4305},
-            {lat: 43.2220, lng: 76.8512}, {lat: 15.2993, lng: 74.1240},
+            // {lat: 43.2220, lng: 76.8512}, {lat: 15.2993, lng: 74.1240},
         ],
         [//Nur-Sultan
             {lat: 51.1605, lng: 71.4704}, {lat: 36.8969, lng: 30.7133},
@@ -288,9 +288,9 @@ function initMap() {
         [//Chengdu
             {lat: 30.5723, lng: 104.0665}, {lat: 43.2220, lng: 76.8512},
         ],
-        [//Jeddah
-            {lat: 21.4858, lng: 39.1925}, {lat: 43.2220, lng: 76.8512},
-        ],
+        // [//Jeddah
+        //     {lat: 21.4858, lng: 39.1925}, {lat: 43.2220, lng: 76.8512},
+        // ],
         [//Bishkek
             {lat: 42.8746, lng: 74.5698}, {lat: 43.2220, lng: 76.8512},
         ],
@@ -348,9 +348,9 @@ function initMap() {
             {lat: 37.0344, lng: 27.4305}, {lat: 43.2220, lng: 76.8512},
             {lat: 37.0344, lng: 27.4305}, {lat: 51.1605, lng: 71.4704},
         ],
-        [//Goa
-            {lat: 15.2993, lng: 74.1240}, {lat: 43.2220, lng: 76.8512},
-        ],
+        // [//Goa
+        //     {lat: 15.2993, lng: 74.1240}, {lat: 43.2220, lng: 76.8512},
+        // ],
 
     ]
 
