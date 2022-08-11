@@ -1,316 +1,316 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta charset="utf-8" />
     <title>Air Astana Route Map</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
     <style>
-      #map {
-        height: 100%;
-      }
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+        #map {
+            height: 100%;
+        }
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
     </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script>
-      function initMap() {
+</head>
+<body>
+<div id="map"></div>
+<script>
+    function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: 47.7964, lng: 67.702 },
-          zoom: 5,
-          mapId: "685d7e01260de14c",
-          disableDefaultUI: false,
+            center: { lat: 47.7964, lng: 67.702 },
+            zoom: 5,
+            mapId: "685d7e01260de14c",
+            disableDefaultUI: false,
         });
 
         const blueLineSymbol = {
-          path: google.maps.SymbolPath.CIRCLE,
-          scale: 5,
-          fillColor: "#9C8761",
-          fillOpacity: 0.6,
-          strokeColor: "#9C8761",
-          strokeOpacity: 0.9,
-          strokeWeight: 2,
-          labelOrigin: new google.maps.Point(0, 2.8),
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 5,
+            fillColor: "#9C8761",
+            fillOpacity: 0.6,
+            strokeColor: "#9C8761",
+            strokeOpacity: 0.9,
+            strokeWeight: 2,
+            labelOrigin: new google.maps.Point(0, 2.8),
         };
         const redLineSymbol = {
-          path: google.maps.SymbolPath.CIRCLE,
-          scale: 5,
-          fillColor: "#002A47",
-          fillOpacity: 1,
-          strokeColor: "#002A47",
-          strokeOpacity: 0.9,
-          strokeWeight: 2,
-          labelOrigin: new google.maps.Point(0, 2.8),
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 5,
+            fillColor: "#002A47",
+            fillOpacity: 1,
+            strokeColor: "#002A47",
+            strokeOpacity: 0.9,
+            strokeWeight: 2,
+            labelOrigin: new google.maps.Point(0, 2.8),
         };
 
         const labels = [
-          ["Almaty"],
-          ["Batumi"],
-          ["Colombo"],
-          ["Dubai"],
-          ["Dushanbe"],
-          ["Bishkek"],
-          ["Baku"],
-          ["Kyiv"],
-          ["Saint-Petersburg"],
-          ["Nur-Sultan"],
-          ["Samarkand"],
-          ["Tashkent"],
-          ["Tbilisi"],
+            ["Almaty"],
+            ["Batumi"],
+            ["Colombo"],
+            ["Dubai"],
+            ["Dushanbe"],
+            ["Bishkek"],
+            ["Baku"],
+            // ["Kyiv"],
+            // ["Saint-Petersburg"],
+            ["Nur-Sultan"],
+            ["Samarkand"],
+            ["Tashkent"],
+            ["Tbilisi"],
         ];
 
         const locations = [
-          [{ lat: 43.222, lng: 76.8512 }],
-          [{ lat: 41.6168, lng: 41.6367 }],
-          [{ lat: 6.9271, lng: 79.8612 }],
-          [{ lat: 25.2048, lng: 55.2708 }],
-          [{ lat: 38.5598, lng: 68.787 }],
-          [{ lat: 42.8746, lng: 74.5698 }],
-          [{ lat: 40.4093, lng: 49.8671 }],
-          [{ lat: 50.4501, lng: 30.5234 }],
-          [{ lat: 59.9311, lng: 30.3609 }],
-          [{ lat: 51.1605, lng: 71.4704 }],
-          [{ lat: 39.627, lng: 66.975 }],
-          [{ lat: 41.2995, lng: 69.2401 }],
-          [{ lat: 41.7151, lng: 44.8271 }],
+            [{ lat: 43.222, lng: 76.8512 }],
+            [{ lat: 41.6168, lng: 41.6367 }],
+            [{ lat: 6.9271, lng: 79.8612 }],
+            [{ lat: 25.2048, lng: 55.2708 }],
+            [{ lat: 38.5598, lng: 68.787 }],
+            [{ lat: 42.8746, lng: 74.5698 }],
+            [{ lat: 40.4093, lng: 49.8671 }],
+            // [{ lat: 50.4501, lng: 30.5234 }],
+            // [{ lat: 59.9311, lng: 30.3609 }],
+            [{ lat: 51.1605, lng: 71.4704 }],
+            [{ lat: 39.627, lng: 66.975 }],
+            [{ lat: 41.2995, lng: 69.2401 }],
+            [{ lat: 41.7151, lng: 44.8271 }],
         ];
         const city = [
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Almaty ALA</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Batumi BUS</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Colombo CMB</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Dubai DXB</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Dushanbe DYU</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Bishkek FRU</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Baku GYD</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Kyiv KBP</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Saint-Petersburg LED</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Nur-Sultan NQZ</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Samarkand SKD</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Tashkent TAS</p>',
-          ],
-          [
-            '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Tbilisi TBS</p>',
-          ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Almaty ALA</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Batumi BUS</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Colombo CMB</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Dubai DXB</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Dushanbe DYU</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Bishkek FRU</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Baku GYD</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Kyiv KBP</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Saint-Petersburg LED</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Nur-Sultan NQZ</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Samarkand SKD</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Tashkent TAS</p>',
+            ],
+            [
+                '<p style="font-size:12px;font-weight: bold; font-family:Arial, Helvetica, sans-serif;">Tbilisi TBS</p>',
+            ],
         ];
         const markerRoutes = [
-          [
-            "Almaty",
             [
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 42.8746, lng: 74.5698 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 40.4093, lng: 49.8671 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 39.627, lng: 66.975 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 41.2995, lng: 69.2401 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 38.5598, lng: 68.787 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 59.9311, lng: 30.3609 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 41.7151, lng: 44.8271 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 6.9271, lng: 79.8612 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 41.6168, lng: 41.6367 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 50.4501, lng: 30.5234 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 51.1605, lng: 71.4704 },
+                "Almaty",
+                [
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 42.8746, lng: 74.5698 },
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 40.4093, lng: 49.8671 },
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 39.627, lng: 66.975 },
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 41.2995, lng: 69.2401 },
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 38.5598, lng: 68.787 },
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 59.9311, lng: 30.3609 },
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 41.7151, lng: 44.8271 },
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 6.9271, lng: 79.8612 },
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 41.6168, lng: 41.6367 },
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 50.4501, lng: 30.5234 },
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 51.1605, lng: 71.4704 },
+                ],
             ],
-          ],
-          [
-            "Batumi",
             [
-              { lat: 41.6168, lng: 41.6367 },
-              { lat: 43.222, lng: 76.8512 },
+                "Batumi",
+                [
+                    { lat: 41.6168, lng: 41.6367 },
+                    { lat: 43.222, lng: 76.8512 },
+                ],
             ],
-          ],
-          [
-            "Colombo",
             [
-              { lat: 6.9271, lng: 79.8612 },
-              { lat: 43.222, lng: 76.8512 },
+                "Colombo",
+                [
+                    { lat: 6.9271, lng: 79.8612 },
+                    { lat: 43.222, lng: 76.8512 },
+                ],
             ],
-          ],
-          [
-            "Dubai",
             [
-              { lat: 25.2048, lng: 55.2708 },
-              { lat: 51.1605, lng: 71.4704 },
+                "Dubai",
+                [
+                    { lat: 25.2048, lng: 55.2708 },
+                    { lat: 51.1605, lng: 71.4704 },
+                ],
             ],
-          ],
-          [
-            "Dushanbe",
             [
-              { lat: 38.5598, lng: 68.787 },
-              { lat: 43.222, lng: 76.8512 },
+                "Dushanbe",
+                [
+                    { lat: 38.5598, lng: 68.787 },
+                    { lat: 43.222, lng: 76.8512 },
+                ],
             ],
-          ],
-          [
-            "Bishkek",
             [
-              { lat: 42.8746, lng: 74.5698 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 42.8746, lng: 74.5698 },
-              { lat: 51.1605, lng: 71.4704 },
+                "Bishkek",
+                [
+                    { lat: 42.8746, lng: 74.5698 },
+                    { lat: 43.222, lng: 76.8512 },
+                    { lat: 42.8746, lng: 74.5698 },
+                    { lat: 51.1605, lng: 71.4704 },
+                ],
             ],
-          ],
-          [
-            "Baku",
             [
-              { lat: 40.4093, lng: 49.8671 },
-              { lat: 43.222, lng: 76.8512 },
+                "Baku",
+                [
+                    { lat: 40.4093, lng: 49.8671 },
+                    { lat: 43.222, lng: 76.8512 },
+                ],
             ],
-          ],
-          [
-            "Kyiv",
             [
-              { lat: 50.4501, lng: 30.5234 },
-              { lat: 51.1605, lng: 71.4704 },
-              { lat: 50.4501, lng: 30.5234 },
-              { lat: 43.222, lng: 76.8512 },
+                // "Kyiv",
+                // [
+                //     { lat: 50.4501, lng: 30.5234 },
+                //     { lat: 51.1605, lng: 71.4704 },
+                //     { lat: 50.4501, lng: 30.5234 },
+                //     { lat: 43.222, lng: 76.8512 },
+                // ],
             ],
-          ],
-          [
-            "Saint-Petersburg",
             [
-              { lat: 59.9311, lng: 30.3609 },
-              { lat: 43.222, lng: 76.8512 },
-              { lat: 59.9311, lng: 30.3609 },
-              { lat: 51.1605, lng: 71.4704 },
+                // "Saint-Petersburg",
+                // [
+                //     { lat: 59.9311, lng: 30.3609 },
+                //     { lat: 43.222, lng: 76.8512 },
+                //     { lat: 59.9311, lng: 30.3609 },
+                //     { lat: 51.1605, lng: 71.4704 },
+                // ],
             ],
-          ],
-          [
-            "Nur-Sultan",
             [
-              { lat: 51.1605, lng: 71.4704 },
-              { lat: 50.4501, lng: 30.5234 },
-              { lat: 51.1605, lng: 71.4704 },
-              { lat: 41.7151, lng: 44.8271 },
-              { lat: 51.1605, lng: 71.4704 },
-              { lat: 41.2995, lng: 69.2401 },
-              { lat: 51.1605, lng: 71.4704 },
-              { lat: 59.9311, lng: 30.3609 },
-              { lat: 51.1605, lng: 71.4704 },
-              { lat: 42.8746, lng: 74.5698 },
-              { lat: 51.1605, lng: 71.4704 },
-              { lat: 25.2048, lng: 55.2708 },
+                "Nur-Sultan",
+                [
+                    // { lat: 51.1605, lng: 71.4704 },
+                    // { lat: 50.4501, lng: 30.5234 },
+                    { lat: 51.1605, lng: 71.4704 },
+                    { lat: 41.7151, lng: 44.8271 },
+                    { lat: 51.1605, lng: 71.4704 },
+                    { lat: 41.2995, lng: 69.2401 },
+                    // { lat: 51.1605, lng: 71.4704 },
+                    // { lat: 59.9311, lng: 30.3609 },
+                    { lat: 51.1605, lng: 71.4704 },
+                    { lat: 42.8746, lng: 74.5698 },
+                    { lat: 51.1605, lng: 71.4704 },
+                    { lat: 25.2048, lng: 55.2708 },
 
-              { lat: 51.1605, lng: 71.4704 },
-              { lat: 43.222, lng: 76.8512 },
+                    { lat: 51.1605, lng: 71.4704 },
+                    { lat: 43.222, lng: 76.8512 },
+                ],
             ],
-          ],
-          [
-            "Samarkand",
             [
-              { lat: 39.627, lng: 66.975 },
-              { lat: 43.222, lng: 76.8512 },
+                "Samarkand",
+                [
+                    { lat: 39.627, lng: 66.975 },
+                    { lat: 43.222, lng: 76.8512 },
+                ],
             ],
-          ],
-          [
-            "Tashkent",
             [
-              { lat: 41.2995, lng: 69.2401 },
-              { lat: 51.1605, lng: 71.4704 },
-              { lat: 41.2995, lng: 69.2401 },
-              { lat: 43.222, lng: 76.8512 },
+                "Tashkent",
+                [
+                    { lat: 41.2995, lng: 69.2401 },
+                    { lat: 51.1605, lng: 71.4704 },
+                    { lat: 41.2995, lng: 69.2401 },
+                    { lat: 43.222, lng: 76.8512 },
+                ],
             ],
-          ],
-          [
-            "Tbilisi",
             [
-              { lat: 41.7151, lng: 44.8271 },
-              { lat: 51.1605, lng: 71.4704 },
-              { lat: 41.7151, lng: 44.8271 },
-              { lat: 43.222, lng: 76.8512 },
+                "Tbilisi",
+                [
+                    { lat: 41.7151, lng: 44.8271 },
+                    { lat: 51.1605, lng: 71.4704 },
+                    { lat: 41.7151, lng: 44.8271 },
+                    { lat: 43.222, lng: 76.8512 },
+                ],
             ],
-          ],
         ];
         const markers = [];
         function multipleMarkers() {
-          for (var i = 0; i < locations.length; i++) {
-            const marker = new google.maps.Marker({
-              position: locations[i][0],
-              map: map,
-              icon: blueLineSymbol,
-              label: {
-                text: labels[i][0],
-                fontWeight: "bold",
-                fontSize: "15px",
-                fontFamily: "Arial, Helvetica, sans-serif",
-                color: "#6C6C6C",
-              },
-            });
-            const contentString = `<p>${city[i][0]}</p>`;
-            const infoWindow = new google.maps.InfoWindow({
-              content: contentString,
-            });
-            const markerRoute = new google.maps.Polyline({
-              path: markerRoutes[i][1],
-              geodesic: true,
-              strokeColor: "#002A47",
-              strokeOpacity: 1.0,
-              strokeWeight: 2,
-            });
-            marker.addListener("mouseover", () => {
-              markerRoute.setMap(map);
-            });
-            marker.addListener("mouseout", () => {
-              markerRoute.setMap(null);
-            });
-            marker.addListener("mouseover", () => {
-              infoWindow.open(map, marker);
-            });
-            marker.addListener("mouseout", () => {
-              infoWindow.close(map, marker);
-            });
-            marker.addListener("mouseover", () => {
-              marker.setIcon(redLineSymbol);
-            });
-            marker.addListener("mouseout", () => {
-              marker.setIcon(blueLineSymbol);
-            });
-            markers.push(marker);
-          }
+            for (var i = 0; i < locations.length; i++) {
+                const marker = new google.maps.Marker({
+                    position: locations[i][0],
+                    map: map,
+                    icon: blueLineSymbol,
+                    label: {
+                        text: labels[i][0],
+                        fontWeight: "bold",
+                        fontSize: "15px",
+                        fontFamily: "Arial, Helvetica, sans-serif",
+                        color: "#6C6C6C",
+                    },
+                });
+                const contentString = `<p>${city[i][0]}</p>`;
+                const infoWindow = new google.maps.InfoWindow({
+                    content: contentString,
+                });
+                const markerRoute = new google.maps.Polyline({
+                    path: markerRoutes[i][1],
+                    geodesic: true,
+                    strokeColor: "#002A47",
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2,
+                });
+                marker.addListener("mouseover", () => {
+                    markerRoute.setMap(map);
+                });
+                marker.addListener("mouseout", () => {
+                    markerRoute.setMap(null);
+                });
+                marker.addListener("mouseover", () => {
+                    infoWindow.open(map, marker);
+                });
+                marker.addListener("mouseout", () => {
+                    infoWindow.close(map, marker);
+                });
+                marker.addListener("mouseover", () => {
+                    marker.setIcon(redLineSymbol);
+                });
+                marker.addListener("mouseout", () => {
+                    marker.setIcon(blueLineSymbol);
+                });
+                markers.push(marker);
+            }
         }
         multipleMarkers();
-      }
-    </script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWawW_kOFE7YBVVdjQMq_fkBEA9Erb9Ks&callback=initMap&libraries=places&v=beta"
-      defer
-    ></script>
-  </body>
+    }
+</script>
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWawW_kOFE7YBVVdjQMq_fkBEA9Erb9Ks&callback=initMap&libraries=places&v=beta"
+        defer
+></script>
+</body>
 </html>
